@@ -1,0 +1,35 @@
+apply plugin: 'java'
+
+sourceCompatibility = '1.8'
+
+dependencies {
+    compile 'io.dropwizard:dropwizard-core:0.7.1'
+    compile 'org.apache.httpcomponents:httpclient:4.3.6',
+
+    compile("com.netflix.eureka:eureka-client:1.1.159") {
+        exclude group: "org.apache.httpcomponents"
+        exclude group: "javax.servlet"
+        exclude group: "com.sun.jersey", module: "jersey-core"
+        exclude group: "com.google.guava", module: "guava"
+        exclude group: "org.slf4j", module: "slf4j-api"
+    }
+
+
+    testCompile 'junit:junit:4.11'
+}
+
+task capsule(type: Jar, dependsOn: classes) {
+    archiveName = "dropwizard-eureka-client.jar"
+
+    from jar
+    from { configurations.runtime }
+
+    // manifest {
+    //     attributes(
+    //             'Application-Version': version,
+    //             'Min-Java-Version': '1.8.0',
+    //             // 'JVM-Args': run.jvmArgs.join(' '),
+    //             // 'System-Properties': run.systemProperties.collect { k, v -> "$k=$v" }.join(' '),
+    //     )
+    // }
+}
