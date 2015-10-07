@@ -8,20 +8,12 @@ group = 'com.github.schibsted'
 repositories {
     mavenLocal()
     mavenCentral()
+    maven { url "https://jitpack.io" }
 }
 
 dependencies {
-    compile 'io.dropwizard:dropwizard-core:0.7.1'
-    compile 'org.apache.httpcomponents:httpclient:4.3.6',
-
-    compile("com.netflix.eureka:eureka-client:1.1.159") {
-        exclude group: "org.apache.httpcomponents"
-        exclude group: "javax.servlet"
-        exclude group: "com.sun.jersey", module: "jersey-core"
-        exclude group: "com.google.guava", module: "guava"
-        exclude group: "org.slf4j", module: "slf4j-api"
-    }
-
+    compile 'io.dropwizard:dropwizard-core:0.8.4'
+    compile 'com.github.schibsted.eureka-jersey2:eureka-client:16e724ec5e'
 
     testCompile 'junit:junit:4.11'
 }

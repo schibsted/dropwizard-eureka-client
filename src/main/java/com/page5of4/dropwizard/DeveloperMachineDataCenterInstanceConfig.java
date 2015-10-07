@@ -3,8 +3,8 @@ package com.page5of4.dropwizard;
 import com.netflix.appinfo.PropertiesInstanceConfig;
 import com.netflix.config.DynamicPropertyFactory;
 import com.page5of4.dropwizard.discovery.DiscoveryMetadataProvider;
-import com.sun.jersey.spi.resource.Singleton;
 
+import javax.inject.Singleton;
 import java.util.Collection;
 import java.util.Map;
 
