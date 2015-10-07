@@ -2,6 +2,9 @@ apply plugin: 'java'
 
 sourceCompatibility = '1.8'
 
+apply plugin: 'maven'
+group = 'com.github.schibsted'
+
 repositories {
     mavenLocal()
     mavenCentral()
